@@ -115,17 +115,12 @@
         }
 
 
-        // dirrect server connection
-        //socket = new WebSocket("ws://localhost:50001/Chat");
-        //socket = new WebSocket("ws://abyza.duckdns.org:50001/Chat");
+        // direct server connection without ssl
+        socket = new WebSocket("ws://localhost:50001/Chat"); // use for testing
+        //socket = new WebSocket("ws://abyza.duckdns.org:50001/Chat"); // never use this anymore since I have can now use wss
 
-        // using proxy
-        //socket = new WebSocket("ws://localhost:50002"); 
-        //socket = new WebSocket("ws://abyza.duckdns.org:50002"); 
-        socket = new WebSocket("wss://abyza.duckdns.org:50002"); 
-
-        
-        
+        // using proxy for ssl
+        //socket = new WebSocket("wss://abyza.duckdns.org:50002"); //use for testing across different networks and possible for production
 
         socket.addEventListener('open', onOpen);
         socket.addEventListener('message', onMessage);
